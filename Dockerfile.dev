@@ -1,0 +1,17 @@
+# "Dockerfile.dev" -> Only for a dev environment.
+FROM node:16-alpine
+
+# https://ausytechnologies.udemy.com/course/docker-and-kubernetes-the-complete-guide/learn/lecture/11437068#questions/14297316
+USER node
+
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
+
+#COPY package.json .
+COPY --chown=node:node ./package.json ./
+RUN npm install
+
+#COPY . .
+COPY --chown=node:node ./ ./
+
+CMD ["npm", "run", "start"]
