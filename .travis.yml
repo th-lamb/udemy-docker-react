@@ -10,7 +10,7 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  redion: "us-east-1"
+  region: "us-east-1"
   app: "udemy-docker-react"
   env: "Udemydockerreact-env"
   bucket_name: "elasticbeanstalk-us-east-1-121986536897"
