@@ -39,4 +39,6 @@ RUN npm run build
 #   COPY static-html-directory /usr/share/nginx/html
 # [...]
 FROM nginx
+# Elastic Beanstalk will look for an EXPOSE instruction and map a port for incoming traffic.
+EXPOSE 80
 COPY --from=builder /home/node/app/build /usr/share/nginx/html
